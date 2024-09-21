@@ -39,9 +39,9 @@ CFGLog = {
     },
     "output": {
         "output_path": "./artifacts/",
-        "dt_model": "decision_tree/dt_model.pkl",
-        "rf_model": "random_forest/rf_model.pkl",
-        "xgb_model": "xg_boost/xgb_model.pkl",
+        "dt_model": "dt_model.pkl",
+        "rf_model": "rf_model.pkl",
+        "xgb_model": "xgb_model.pkl",
     }
 }
 

@@ -2,13 +2,11 @@ CFGLog = {
     "data": {
         "path": "./data/SeoulBikeData.csv",
         "X": [
-            'date', 'rented_bike_count',
-            'hour', 'temp', 'humidity',
-            'wind_speed', 'visibility', 
-            'dew_point_temp', 'solar_rad',
-            'rainfall', 'snowfall',
-            'seasons', 'holiday',
-            'functioning_day'
+            'hour', 'temp',
+            'humidity', 'wind_speed', 
+            'visibility', 'solar_rad',
+            'rainfall', 'snowfall', 'seasons',
+            'holiday', 'day', 'month'
         ],
         "y": "rented_bike_count",
         "test_size": 0.2,

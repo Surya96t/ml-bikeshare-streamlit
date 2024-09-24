@@ -1,5 +1,4 @@
-
-
+# This file contains the ModelTrainer class which is responsible for training the model.
 class ModelTrainer():
     def __init__(self, model, X_train, y_train):
         self.model = model

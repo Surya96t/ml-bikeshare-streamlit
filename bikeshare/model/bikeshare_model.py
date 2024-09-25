@@ -4,7 +4,7 @@ import xgboost as xg
 
 from datetime import datetime
 from .base_model import BaseModel
-from bikeshare.dataloader import DataLoader
+from bikeshare.dataloader.dataloader import DataLoader
 from bikeshare.executor.trainer import ModelTrainer
 from bikeshare.utils.postprocessing import ModelSaving
 
@@ -24,7 +24,7 @@ class BikeshareDecisionTree(BaseModel):
     def build(self):
         """ Build the model """
         self.model = DecisionTreeRegressor()
-        print("Decision Tree model built")
+        print("\nDecision Tree model built")
         
         
     def train(self):
@@ -64,8 +64,8 @@ class BikeshareDecisionTree(BaseModel):
         
     def export_model(self):
         """ Saves the model """
-        output_config = self.config.output.output_path + self.config.output.dt_model
-        ModelSaving().save_model_with_timestamp(self.col_transformer, self.model, output_config)
+        output_config = self.config.output.output_path  + self.config.output.dt_path
+        ModelSaving().save_model_with_timestamp(self.col_transformer, self.model, self._name, output_config)
         
         
 class BikeshareRandomForest(BaseModel):
@@ -83,7 +83,7 @@ class BikeshareRandomForest(BaseModel):
     def build(self):
         """ Build the model """
         self.model = RandomForestRegressor()
-        print("Random Forest model built")
+        print("\nRandom Forest model built")
         
         
     def train(self):
@@ -121,8 +121,8 @@ class BikeshareRandomForest(BaseModel):
         
     def export_model(self):
         """ Saves the model """
-        output_config = self.config.output.output_path + self.config.output.rf_model
-        ModelSaving().save_model_with_timestamp(self.col_transformer, self.model, output_config)
+        output_config = self.config.output.output_path + self.config.output.rf_path
+        ModelSaving().save_model_with_timestamp(self.col_transformer, self.model, self._name, output_config)
         
 
 class BikeshareXGBoost(BaseModel):
@@ -140,18 +140,18 @@ class BikeshareXGBoost(BaseModel):
     def build(self):
         """ Build the model """
         self.model = xg.XGBRegressor()
-        print("XGBoost model built")
+        print("\nXGBoost model built")
         
         
     def train(self):
         """ Complies and trains the model with the configured hyperparameters """
         print("Setting the XGBoost training parameters")
         self.model = xg.XGBRegressor(
+            objective='reg:squarederror',
             n_estimators=self.config.gradient_boosting.n_estimators,
             max_depth=self.config.gradient_boosting.max_depth,
-            max_features=self.config.gradient_boosting.max_features,
-            min_samples_leaf=self.config.gradient_boosting.min_samples_leaf,
-            min_samples_split=self.config.gradient_boosting.min_samples_split,
+            subsample=self.config.gradient_boosting.subsample,
+            learning_rate=self.config.gradient_boosting.learning_rate,
             random_state=self.config.data.random_state
         )
         print("XGBoost training is started")
@@ -178,5 +178,5 @@ class BikeshareXGBoost(BaseModel):
         
     def export_model(self):
         """ Saves the model """
-        output_config = self.config.output.output_path + self.config.output.xgb_model
-        ModelSaving().save_model_with_timestamp(self.col_transformer, self.model, output_config)
+        output_config = self.config.output.output_path + self.config.output.xgb_path
+        ModelSaving().save_model_with_timestamp(self.col_transformer, self.model, self._name, output_config)

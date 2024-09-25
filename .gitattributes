@@ -1,0 +1,4 @@
+*.pkl filter=lfs diff=lfs merge=lfs -text
+artifacts/dt_model/*.pkl filter=lfs diff=lfs merge=lfs -text
+artifacts/rf_model/*.pkl filter=lfs diff=lfs merge=lfs -text
+artifacts/xgb_model/*.pkl filter=lfs diff=lfs merge=lfs -text

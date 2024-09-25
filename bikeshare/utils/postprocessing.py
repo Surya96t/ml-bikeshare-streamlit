@@ -12,7 +12,7 @@ class ModelSaving(object):
     @staticmethod 
     def save_model_with_timestamp(col_transformer, model, model_name, output_config):
         filename = model_name + "_" + ModelSaving.get_current_timestamp() + ".pkl"
-        filepath = os.path.join(output_config.output_path, filename)
+        filepath = os.path.join(output_config, filename)
         with open(filepath, 'wb') as outputfile:
             pickle.dump((col_transformer, model), outputfile)
         

@@ -55,7 +55,9 @@ class BikeshareDecisionTree(BaseModel):
     def evaluate(self):
         """ Decision Tree predicts the results for the test data"""
         self.y_test_pred = self.model.predict(self.X_test)
-        print("Decision Tree model evaluation on test test completed, check model attributes for results")
+        output_config = self.config.output.output_path  + self.config.output.dt_path
+        ModelSaving().save_model_metrics(self.y_test, self.y_test_pred, self._name, output_config)
+        print("Decision Tree model evaluation on test test completed, check model folder for results")
         
     def evaluate_new_data(self, new_data):
         """ Predicts the results for the new data """
@@ -112,6 +114,8 @@ class BikeshareRandomForest(BaseModel):
     def evaluate(self):
         """ Random Forest predicts the results for the test data"""
         self.y_test_pred = self.model.predict(self.X_test)
+        output_config = self.config.output.output_path + self.config.output.rf_path
+        ModelSaving().save_model_metrics(self.y_test, self.y_test_pred, self._name, output_config)
         print("Random Forest model evaluation on test test completed, check model attributes for results")
         
     def evaluate_new_data(self, new_data):
@@ -169,6 +173,8 @@ class BikeshareXGBoost(BaseModel):
     def evaluate(self):
         """ XGBoost predicts the results for the test data"""
         self.y_test_pred = self.model.predict(self.X_test)
+        output_config = self.config.output.output_path + self.config.output.xgb_path
+        ModelSaving().save_model_metrics(self.y_test, self.y_test_pred, self._name, output_config)
         print("XGBoost model evaluation on test test completed, check model attributes for results")
         
     def evaluate_new_data(self, new_data):

@@ -50,7 +50,6 @@ class DataLoader:
         
         X_train_num = X_train.select_dtypes(include=[np.number]).columns
         X_train_cat = X_train.select_dtypes(exclude=[np.number]).columns
-        print(X_train_cat)
         
         # Normalizing the numerical features and endcoding the categorical features
         scaler = MinMaxScaler()

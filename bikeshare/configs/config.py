@@ -37,11 +37,11 @@ CFGLog = {
     "output": {
         "output_path": "./artifacts/",
         "dt_path": "dt_model/",
-        "dt_model": "DecisionTree_2024-09-25_07-10-59.pkl",
+        "dt_model": "DecisionTree_2024-09-27_15-36-37.pkl",
         "rf_path": "rf_model/",
-        "rf_model": "RandomForest_2024-09-25_07-11-02.pkl",
+        "rf_model": "RandomForest_2024-09-27_15-36-41.pkl",
         "xgb_path": "xgb_model/",
-        "xgb_model": "XGBoost_2024-09-25_07-11-04.pkl",
+        "xgb_model": "XGBoost_2024-09-27_15-36-43.pkl",
     }
 }
 

@@ -23,8 +23,7 @@ streamlit run ./streamlit/app.py
 
 ## Screenshots
 
-![App Screenshot](![image](https://github.com/user-attachments/assets/4e95d93e-7975-4574-a700-f18136f15a3b)
-)
+![App Screenshot](https://github.com/Surya96t/ml-bikeshare-streamlit/blob/main/app_screenshot.png)
 
 
 ## Appendix
